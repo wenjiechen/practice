@@ -165,6 +165,11 @@ class LinkedList {
   public Node getHead() {
     return first;
   }
+  
+  public LinkedList setHead(Node head){
+    this.first = head;
+    return this;
+  }
 
   // solution 3: delete Node n, but can't access other node.
   public boolean deleteNode(Node n) {
@@ -269,18 +274,37 @@ class LinkedList {
       cur = cur.next;
     }
 
-    if(carry != 0){
+    if (carry != 0) {
       ret.insertLast(carry);
     }
-    
+
     return ret;
   }
-  
-  public static Node addLists(Node l1, Node l2, int carry){
-    if(l1==null && l2==null && carry==0){
+
+  // 2.5, add two number represented by linked lists.
+  public static Node addLists(Node l1, Node l2, int carry) {
+    if (l1 == null && l2 == null && carry == 0) {
       return null;
     }
+
+    Node ret = new Node(carry);
+    int value = carry;
+    if (l1 != null) {
+      value += l1.data;
+    }
+    if (l2 != null) {
+      value += l2.data;
+    }
+    ret.data = value % 10;
+
+    if (l1 != null || l2 != null || value >= 10) {
+      Node nextNode = addLists(l1 == null ? null : l1.next, l2 == null ? null
+          : l2.next, value >= 10 ? 1 : 0);
+
+      ret.next = nextNode;
+    }
+
+    return ret;
   }
-  
-  
+
 }
