@@ -2,13 +2,12 @@ package chapter3StackAndQueues;
 
 import java.util.LinkedList;
 
-class Animal {
+abstract class Animal {
   int order = 0;
   String name;
 
-  public Animal(String name, int order) {
+  public Animal(String name) {
     this.name = name;
-    this.order = order;
   }
   
   public boolean isOrderThan(Animal o){
@@ -17,15 +16,26 @@ class Animal {
 }
 
 class Dog extends Animal {
-  public Dog(String name, int order) {
-    super(name, order);
+  public Dog(String name) {
+    super(name);
+  }
+  
+  @Override
+  public String toString(){
+    return "order "+ order + ", name: " + name;
   }
 }
 
 class Cat extends Animal {
-  public Cat(String name, int order) {
-    super(name, order);
+  public Cat(String name) {
+    super(name);
   }
+  
+  @Override
+  public String toString(){
+    return "order "+ order + ", name: " + name;
+  }
+
 }
 
 public class MyQueue<T extends Animal>{
