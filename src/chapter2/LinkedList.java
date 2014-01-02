@@ -298,7 +298,7 @@ class LinkedList {
     ret.data = value % 10;
 
     if (l1 != null || l2 != null || value >= 10) {
-      Node nextNode = addLists(l1 == null ? null : l1.next, l2 == null ? null
+      Node nextNode = addLists(l1 == null ? null : l1.next, l2 == null ? null  
           : l2.next, value >= 10 ? 1 : 0);
 
       ret.next = nextNode;
