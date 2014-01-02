@@ -68,7 +68,7 @@ public class Stack {
     return top.data;
   }
   
-  public void shift(Stack s1,Stack s2){
+  public static void shift(Stack s1,Stack s2){
     while(s1.isEmpty() == false){
       Node n = s1.pop();
       s2.push(n);
@@ -107,6 +107,9 @@ public class Stack {
     shift(small,large);
     shift(large,this);
   }
+  
+  
+  
 
   public static void main(String... args) {
     Stack s = new Stack();
