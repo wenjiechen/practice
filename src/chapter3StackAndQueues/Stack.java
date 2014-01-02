@@ -75,6 +75,7 @@ public class Stack {
     }
   }
   
+  //use two additional stacks
   public void sortStack(){
     Stack small = new Stack();
     Stack large = new Stack();
@@ -97,20 +98,26 @@ public class Stack {
         small.push(n);
         shift(large,small);
       }
-//      print("stack is");
-//      this.printstack();
-//      print("small is ");
-//      small.printstack();
-//      print("large is ");
-//      large.printstack();
     }
     shift(small,large);
     shift(large,this);
   }
   
+  //use only an additional stack 
+  public static void sortStack2(Stack s){
+    Stack ordered = new Stack();
+    while(s.isEmpty() == false){
+      Node top = s.pop();
+      while(ordered.isEmpty() == false && ordered.peek() >= top.data){
+        s.push(ordered.pop());
+      }
+      ordered.push(top);
+    }
+    while(ordered.isEmpty()==false){
+      s.push(ordered.pop());
+    }
+  }
   
-  
-
   public static void main(String... args) {
     Stack s = new Stack();
     Node n = new Node(3);
@@ -125,7 +132,8 @@ public class Stack {
     s.push(n);
     s.printstack();
     print("======");
-    s.sortStack();
+//    s.sortStack();
+    Stack.sortStack2(s);
     s.printstack();
   }
 
