@@ -19,7 +19,7 @@ public class BinarySearchTree implements Visitor {
   private Node root = null;
 
   /**
-   * insert a new value to the baniry search tree
+   * insert a new value to the binary search tree
    * 
    * @param data
    *          of Node
@@ -50,17 +50,52 @@ public class BinarySearchTree implements Visitor {
     }
   }
 
+  public Node find(int key) throws Exception {
+    Node cur = root;
+    while (cur != null) {
+      if (cur.data == key)
+        return cur;
+      else if (key < cur.data)
+        cur = cur.leftChild;
+      else
+        cur = cur.rightChild;
+    }
+    throw new Exception("don't have node");
+  }
+
+
+  public void inOrder(){
+    inOrderHelper(root);
+  }
+  
   @Override
   public void visit(Node node) {
     System.out.println(node);
   }
 
-  public void inOrder(Node localRoot) {
-    if(localRoot != null){
-      inOrder(localRoot.leftChild);
+  /**
+   * traversing a tree
+   * 
+   * @param localRoot
+   */
+  public void inOrderHelper(Node localRoot) {
+    if (localRoot != null) {
+      inOrderHelper(localRoot.leftChild);
       visit(localRoot);
-      inOrder(localRoot.rightChild);
+      inOrderHelper(localRoot.rightChild);
     }
   }
 
+  
+  public void preOrder(){
+    preOrderHelper(root);
+  }
+  
+  public void preOrderHelper(Node localRoot){
+    visit(localRoot);
+    preOrderHelper(localRoot.leftChild);
+    preOrderHelper(localRoot.rightChild);
+  }
+  
+  
 }
