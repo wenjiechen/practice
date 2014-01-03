@@ -1,4 +1,4 @@
-#Fri Jan 03 00:13:58 EST 2014
+#Fri Jan 03 11:05:05 EST 2014
 /instance/org.eclipse.team.ui/org.eclipse.team.ui.first_time=false
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.localVariable.italic=false
 /instance/org.eclipse.jdt.ui/java_operator=216,216,216
@@ -599,7 +599,7 @@
 /instance/org.eclipse.cdt.ui/semanticHighlighting.macroDefinition.enabled=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.number_of_empty_lines_to_preserve=1
 /instance/org.eclipse.jdt.ui/semanticHighlighting.inheritedMethodInvocation.strikethrough=false
-/instance/org.eclipse.jdt.ui/java_single_line_comment=199,221,12
+/instance/org.eclipse.jdt.ui/java_single_line_comment=191,191,191
 /instance/org.codehaus.groovy.eclipse.ui/groovy.editor.groovyDoc.keyword.color=217,229,119
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_enum_declaration=end_of_line
 /instance/org.eclipse.cdt.ui/semanticHighlighting.macroDefinition.italic=false
@@ -874,7 +874,7 @@ file_export_version=3.0
 /instance/org.eclipse.cdt.ui/semanticHighlighting.methodDeclaration.color=190,214,255
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_question_in_conditional=insert
 /instance/org.eclipse.cdt.ui/semanticHighlighting.localVariable.color=121,171,255
-/instance/org.eclipse.jdt.ui/java_multi_line_comment=199,221,12
+/instance/org.eclipse.jdt.ui/java_multi_line_comment=191,191,191
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.typeParameter.color=191,164,164
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.typeParameter.enabled=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_constructor_declaration=insert
@@ -937,6 +937,7 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_constructor_declaration_parameters=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation=16
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_annotation_type_member_declaration=do not insert
+/instance/org.eclipse.jdt.ui/content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
 /instance/com.adobe.flexide.css.core/cssStringColor=\#FFC600
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_package=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_constructor_declaration=end_of_line

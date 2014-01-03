@@ -12,8 +12,13 @@ public class TreeApp {
     tree.insert(6);
     tree.insert(11);
     
+    System.out.println("inorder:");
     tree.inOrder();
-   
+    System.out.println("preorder:");
+    tree.preOrder();
+    System.out.println("postorder:");
+    tree.postOrder(tree.getRoot());
+    
     try {
       System.out.println(tree.find(11).data == 11);
     } catch (Exception e) {

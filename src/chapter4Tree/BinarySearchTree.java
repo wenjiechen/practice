@@ -63,39 +63,48 @@ public class BinarySearchTree implements Visitor {
     throw new Exception("don't have node");
   }
 
-
-  public void inOrder(){
+  public void inOrder() {
     inOrderHelper(root);
   }
-  
+
   @Override
   public void visit(Node node) {
     System.out.println(node);
   }
 
-  /**
-   * traversing a tree
-   * 
-   * @param localRoot
-   */
   public void inOrderHelper(Node localRoot) {
-    if (localRoot != null) {
-      inOrderHelper(localRoot.leftChild);
-      visit(localRoot);
-      inOrderHelper(localRoot.rightChild);
+    if (localRoot == null) {
+      return;
     }
+    inOrderHelper(localRoot.leftChild);
+    visit(localRoot);
+    inOrderHelper(localRoot.rightChild);
   }
 
-  
-  public void preOrder(){
+  public void preOrder() {
     preOrderHelper(root);
   }
-  
-  public void preOrderHelper(Node localRoot){
+
+  private void preOrderHelper(Node localRoot) {
+    if (localRoot == null) {
+      return;
+    }
     visit(localRoot);
     preOrderHelper(localRoot.leftChild);
     preOrderHelper(localRoot.rightChild);
   }
+
+  public void postOrder(Node localRoot) {
+    if (localRoot == null) {
+      return;
+    }
+    postOrder(localRoot.leftChild);
+    postOrder(localRoot.rightChild);
+    visit(localRoot);
+  }
   
-  
+  public Node getRoot(){
+    return root;
+  }
+
 }
