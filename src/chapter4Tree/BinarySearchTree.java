@@ -18,6 +18,14 @@ public class BinarySearchTree implements Visitor {
 
   private Node root = null;
 
+  public BinarySearchTree(){
+    
+  }
+  
+  public BinarySearchTree(Node root){
+    this.root = root;
+  }
+  
   /**
    * insert a new value to the binary search tree
    * 
@@ -194,8 +202,8 @@ public class BinarySearchTree implements Visitor {
   }
 
   /**
-   * Helper method for deletion. If successor is not the right child of delNode, replace successor's right
-   * child to successor's parent's left child.
+   * Helper method for deletion. If successor is not the right child of delNode,
+   * replace successor's right child to successor's parent's left child.
    * 
    * @param delNode
    * @return the successor of delNode.
@@ -226,4 +234,68 @@ public class BinarySearchTree implements Visitor {
     return (leftHeight > rightHeight) ? leftHeight + 1 : rightHeight + 1;
   }
 
+  /**
+   * Question 4.1
+   * 
+   * @param lroot
+   * @return
+   */
+  public boolean isBlanced(Node lroot) {
+    if (lroot == null) {
+      return true;
+    }
+    int heightDiff = height(lroot.leftChild) - height(lroot.rightChild);
+    if (Math.abs(heightDiff) <= 1) {
+      return isBlanced(lroot.leftChild) && isBlanced(lroot.rightChild);
+    } else {
+      return false;
+    }
+  }
+
+  public static int checkHeight(Node lroot) {
+    if (lroot == null) {
+      return 0;
+    }
+    int left = checkHeight(lroot.leftChild);
+    if (left == -1)
+      return -1;
+    int right = checkHeight(lroot.rightChild);
+    if (right == -1)
+      return -1;
+    int heightDiff = Math.abs(left - right);
+    if (heightDiff > 1)
+      return -1;
+    return Math.max(left, right) + 1;
+  }
+
+  /**
+   * improved method, run time is O(N), space is O(log N) 
+   * @return
+   */
+  public boolean isBlanced() {
+    if (checkHeight(root) == -1)
+      return false;
+    return true;
+  }
+  
+  /**
+   * create minimal height BST
+   * @param arr
+   * @param start
+   * @param end
+   * @return
+   */
+  public static Node createBST(int[] arr, int start, int end){
+    if(end < start){
+      return null;
+    }
+    int mid = (start + end)/2;
+    Node node = new Node(arr[mid]);
+    node.leftChild = createBST(arr, start, mid-1);
+    node.rightChild = createBST(arr,mid+1, end);
+    return node;
+  }
+  
+  
+  
 }

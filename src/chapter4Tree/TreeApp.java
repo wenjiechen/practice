@@ -27,6 +27,14 @@ public class TreeApp {
     tree.inOrder();
     sop("height");
     sop(tree.height(tree.getRoot()));
+    sop("isBlanced");
+    sop(tree.isBlanced(tree.getRoot()));
+    sop("create a tree using array");
+    int[] arr = { 1, 2, 3, 4, 5, 6 };
+    BinarySearchTree t2 = new BinarySearchTree(BinarySearchTree.createBST(arr,
+        0, arr.length-1));
+    sop("inorder t2");
+    t2.inOrder();
 
   }
 
