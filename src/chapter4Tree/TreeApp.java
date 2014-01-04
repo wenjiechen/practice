@@ -1,5 +1,9 @@
 package chapter4Tree;
 
+import java.util.LinkedList;
+
+import chapter4Tree.BinarySearchTree.Node;
+
 public class TreeApp {
   private static void sop(Object x) {
     System.out.println(x);
@@ -22,7 +26,7 @@ public class TreeApp {
 
     sop("inorder:");
     tree.inOrder();
-    sop(tree.delete(80));
+//    sop(tree.delete(80));
     sop("inorder:");
     tree.inOrder();
     sop("height");
@@ -30,12 +34,37 @@ public class TreeApp {
     sop("isBlanced");
     sop(tree.isBlanced(tree.getRoot()));
     sop("create a tree using array");
-    int[] arr = { 1, 2, 3, 4, 5, 6 };
+    int[] arr = { 12, 20, 26, 32, 48, 55, 87, 95, 100 };
     BinarySearchTree t2 = new BinarySearchTree(BinarySearchTree.createBST(arr,
-        0, arr.length-1));
+        0, arr.length - 1));
     sop("inorder t2");
     t2.inOrder();
+    sop("create level linked list");
+    int level = 0;
+    for (LinkedList<Node> list : tree.createLevelLinkedList()) {
+      System.out.print("level " + (level++) + ":");
+      for(Node n : list){
+        System.out.print(", " + n);
+      }
+      sop("");
+      
+    }
 
   }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

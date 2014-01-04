@@ -1,5 +1,8 @@
 package chapter4Tree;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class BinarySearchTree implements Visitor {
 
   static class Node {
@@ -297,7 +300,38 @@ public class BinarySearchTree implements Visitor {
     node.rightChild = createBST(arr, mid + 1, end);
     return node;
   }
-  
-  
+
+  public static void createLevelLinkedList(Node lroot,
+      ArrayList<LinkedList<Node>> lists, int level) {
+    if (lroot == null)
+      return;
+    LinkedList<Node> list = null;
+    // is the first time to get this level?
+    if (lists.size() == level) {
+      list = new LinkedList<Node>();
+      lists.add(list);
+    } else {
+      list = lists.get(level);
+    }
+    list.add(lroot);
+    createLevelLinkedList(lroot.leftChild, lists, level + 1);
+    createLevelLinkedList(lroot.rightChild, lists, level + 1);
+  }
+
+  public ArrayList<LinkedList<Node>> createLevelLinkedList() {
+    ArrayList<LinkedList<Node>> ret = new ArrayList<LinkedList<Node>>();
+    createLevelLinkedList(root, ret, 0);
+    return ret;
+  }
 
 }
+
+
+
+
+
+
+
+
+
+
