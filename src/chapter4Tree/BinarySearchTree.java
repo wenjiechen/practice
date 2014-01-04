@@ -301,6 +301,13 @@ public class BinarySearchTree implements Visitor {
     return node;
   }
 
+  /**
+   * create a linked list at each depth. using pre-order traverse visit
+   * 
+   * @param lroot
+   * @param lists
+   * @param level
+   */
   public static void createLevelLinkedList(Node lroot,
       ArrayList<LinkedList<Node>> lists, int level) {
     if (lroot == null)
@@ -318,20 +325,72 @@ public class BinarySearchTree implements Visitor {
     createLevelLinkedList(lroot.rightChild, lists, level + 1);
   }
 
+  /**
+   * helper function for pre-order create linked list function
+   * 
+   * @return
+   */
   public ArrayList<LinkedList<Node>> createLevelLinkedList() {
     ArrayList<LinkedList<Node>> ret = new ArrayList<LinkedList<Node>>();
     createLevelLinkedList(root, ret, 0);
     return ret;
   }
 
+  /**
+   * use BSF like to build linked list level by level
+   * 
+   * @param lroot
+   * @return
+   */
+
+  public ArrayList<LinkedList<Node>> createLevelLinkedList(Node lroot) {
+    if (lroot == null) {
+      return null;
+    }
+    ArrayList<LinkedList<Node>> levelLists = new ArrayList<LinkedList<Node>>();
+    LinkedList<Node> curLevel = new LinkedList<Node>();
+    curLevel.add(lroot);
+    while (curLevel.size() > 0) {
+      LinkedList<Node> parentLevel = curLevel;
+      levelLists.add(parentLevel);
+      curLevel = new LinkedList<Node>();
+      for (Node node : parentLevel) {
+        if (node.leftChild != null) {
+          curLevel.add(node.leftChild);
+        }
+        if (node.rightChild != null) {
+          curLevel.add(node.rightChild);
+        }
+      }
+    }
+    return levelLists;
+  }
+
+  public static void copyBST(Node lroot, ArrayList<Node> arr) {
+    if(lroot == null){
+      return;
+    }
+    copyBST(lroot.leftChild, arr);
+    arr.add(lroot);
+    copyBST(lroot.rightChild,arr);
+  }
+  
+  public static boolean checkBST(Node lroot){
+    ArrayList<Node> nodes = new ArrayList<Node>();
+    copyBST(lroot,nodes);
+    for(int i = 0; i < nodes.size()-1; i++){
+      if(nodes.get(i).data >  nodes.get(i+1).data){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  
+  
+  
+  
 }
-
-
-
-
-
-
-
 
 
 

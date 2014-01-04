@@ -9,6 +9,17 @@ public class TreeApp {
     System.out.println(x);
   }
 
+  public static void printTreeLevel(BinarySearchTree tree) {
+    int level = 0;
+    for (LinkedList<Node> list : tree.createLevelLinkedList(tree.getRoot())) {
+      System.out.print("level " + (level++) + ":");
+      for (Node n : list) {
+        System.out.print(", " + n);
+      }
+      sop("");
+    }
+  }
+
   public static void main(String[] args) {
     BinarySearchTree tree = new BinarySearchTree();
     tree.insert(50);
@@ -26,7 +37,7 @@ public class TreeApp {
 
     sop("inorder:");
     tree.inOrder();
-//    sop(tree.delete(80));
+    // sop(tree.delete(80));
     sop("inorder:");
     tree.inOrder();
     sop("height");
@@ -40,31 +51,22 @@ public class TreeApp {
     sop("inorder t2");
     t2.inOrder();
     sop("create level linked list");
-    int level = 0;
-    for (LinkedList<Node> list : tree.createLevelLinkedList()) {
-      System.out.print("level " + (level++) + ":");
-      for(Node n : list){
-        System.out.print(", " + n);
-      }
-      sop("");
-      
-    }
+    printTreeLevel(tree);
+    sop("check BST");
+    sop(BinarySearchTree.checkBST(tree.getRoot()));
+    
+    BinarySearchTree.Node root = new BinarySearchTree.Node(100);
+    BinarySearchTree.Node child1 = new BinarySearchTree.Node(50);
+    BinarySearchTree.Node child2 = new BinarySearchTree.Node(40);
+    BinarySearchTree.Node child3 = new BinarySearchTree.Node(60);
+    root.leftChild = child1;
+    root.rightChild = child3;
+    child1.leftChild = child2;
+    sop("create a no binary-search tree");
+    BinarySearchTree notBST = new BinarySearchTree(root);
+    printTreeLevel(notBST);
+    sop("check BST");
+    sop(BinarySearchTree.checkBST(notBST.getRoot()));
 
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
