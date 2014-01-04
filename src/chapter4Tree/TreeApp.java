@@ -1,29 +1,32 @@
 package chapter4Tree;
 
 public class TreeApp {
+  private static void sop(Object x){
+    System.out.println(x);
+  }
 
   public static void main(String[] args) {
     BinarySearchTree tree = new BinarySearchTree();                   
-    tree.insert(10);
-    tree.insert(5);
-    tree.insert(12);
-    tree.insert(7);
-    tree.insert(3);
-    tree.insert(6);
-    tree.insert(11);
+    tree.insert(50);
+    tree.insert(45);
+    tree.insert(30);
+    tree.insert(80);
+    tree.insert(60);
+    tree.insert(55);
+    tree.insert(58);
+    tree.insert(75);
+    tree.insert(100);
+    tree.insert(120);
+    tree.insert(110);
+    tree.insert(130);
     
-    System.out.println("inorder:");
+    sop("inorder:");
     tree.inOrder();
-    System.out.println("preorder:");
-    tree.preOrder();
-    System.out.println("postorder:");
-    tree.postOrder(tree.getRoot());
+    sop(tree.delete(80));
+    sop("inorder:");
+    tree.inOrder();
     
-    try {
-      System.out.println(tree.find(11).data == 11);
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    
   }
 
 }
