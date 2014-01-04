@@ -1,4 +1,4 @@
-#Fri Jan 03 11:05:05 EST 2014
+#Sat Jan 04 00:47:59 EST 2014
 /instance/org.eclipse.team.ui/org.eclipse.team.ui.first_time=false
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.localVariable.italic=false
 /instance/org.eclipse.jdt.ui/java_operator=216,216,216
@@ -94,7 +94,7 @@
 /instance/org.eclipse.cdt.ui/semanticHighlighting.localVariableDeclaration.enabled=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_breaks_compare_to_cases=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_parameterized_type_reference=do not insert
-/instance/org.eclipse.jdt.ui/semanticHighlighting.field.italic=false
+/instance/org.eclipse.jdt.ui/semanticHighlighting.field.italic=true
 /instance/org.eclipse.php.ui/semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.StaticFieldHighlighting.enabled=true
 /instance/org.eclipse.php.ui/semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.ClassHighlighting.enabled=true
 /instance/org.eclipse.jdt.ui/semanticHighlighting.inheritedMethodInvocation.underline=false
@@ -158,7 +158,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_label=do not insert
 /instance/org.eclipse.cdt.ui/semanticHighlighting.staticField.color=239,192,144
 @org.eclipse.ui=3.105.0.v20130522-1122
-/instance/org.eclipse.jdt.ui/semanticHighlighting.field.color=190,214,255
+/instance/org.eclipse.jdt.ui/semanticHighlighting.field.color=105,165,250
 /instance/org.eclipse.wst.jsdt.ui/java_default=216,216,216
 /instance/org.eclipse.jdt.ui/semanticHighlighting.abstractMethodInvocation.color=190,214,255
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_selector_in_method_invocation=16
@@ -205,7 +205,7 @@
 /instance/org.eclipse.wst.jsdt.ui/semanticHighlighting.localVariable.italic=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_parenthesized_expression=do not insert
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.annotation.italic=false
-/instance/org.eclipse.jdt.ui/semanticHighlighting.parameterVariable.color=121,171,255
+/instance/org.eclipse.jdt.ui/semanticHighlighting.parameterVariable.color=144,238,144
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_enum_declarations=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.staticFinalFieldSuffixes=
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_assignment_operator=insert
@@ -251,7 +251,7 @@
 /instance/org.eclipse.wst.css.ui/ATTRIBUTE_VALUE=\#FFFFFF | null | false | false | false | false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_angle_bracket_in_type_parameters=do not insert
 /instance/org.eclipse.jdt.ui/semanticHighlighting.staticFinalField.underline=false
-/instance/org.eclipse.jdt.ui/semanticHighlighting.localVariable.color=105,159,249
+/instance/org.eclipse.jdt.ui/semanticHighlighting.localVariable.color=255,255,255
 /instance/org.eclipse.php.ui/semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.FunctionHighlighting.enabled=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_in_empty_enum_constant=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_in_empty_method_body=insert
@@ -544,7 +544,6 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_binary_expression=16
 /instance/org.eclipse.jdt.ui/pf_coloring_key=216,216,216
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.abstractMethodInvocation.enabled=true
-/instance/org.eclipse.jdt.ui/semanticHighlighting.localVariable.italic=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_method_invocation_arguments=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_cast=do not insert
 /instance/org.eclipse.cdt.ui/semanticHighlighting.typedef.underline=false
@@ -665,7 +664,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_colon_in_conditional=insert
 /instance/org.eclipse.cdt.ui/c_multi_line_comment=199,221,12
 /instance/org.eclipse.php.ui/semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.InternalFunctionHighlighting.color=\#FFFFFF
-/instance/org.eclipse.jdt.ui/semanticHighlighting.localVariableDeclaration.color=190,214,255
+/instance/org.eclipse.jdt.ui/semanticHighlighting.localVariableDeclaration.color=255,255,255
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.localVariable.underline=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_array_initializer=end_of_line
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.enum.underline=false

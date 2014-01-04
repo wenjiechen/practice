@@ -18,14 +18,14 @@ public class BinarySearchTree implements Visitor {
 
   private Node root = null;
 
-  public BinarySearchTree(){
-    
+  public BinarySearchTree() {
+
   }
-  
-  public BinarySearchTree(Node root){
+
+  public BinarySearchTree(Node root) {
     this.root = root;
   }
-  
+
   /**
    * insert a new value to the binary search tree
    * 
@@ -269,7 +269,8 @@ public class BinarySearchTree implements Visitor {
   }
 
   /**
-   * improved method, run time is O(N), space is O(log N) 
+   * improved method, run time is O(N), space is O(log N)
+   * 
    * @return
    */
   public boolean isBlanced() {
@@ -277,25 +278,26 @@ public class BinarySearchTree implements Visitor {
       return false;
     return true;
   }
-  
+
   /**
    * create minimal height BST
+   * 
    * @param arr
    * @param start
    * @param end
    * @return
    */
-  public static Node createBST(int[] arr, int start, int end){
-    if(end < start){
+  public static Node createBST(int[] arr, int start, int end) {
+    if (end < start) {
       return null;
     }
-    int mid = (start + end)/2;
+    int mid = (start + end) / 2;
     Node node = new Node(arr[mid]);
-    node.leftChild = createBST(arr, start, mid-1);
-    node.rightChild = createBST(arr,mid+1, end);
+    node.leftChild = createBST(arr, start, mid - 1);
+    node.rightChild = createBST(arr, mid + 1, end);
     return node;
   }
   
   
-  
+
 }
