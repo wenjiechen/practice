@@ -194,7 +194,7 @@ public class BinarySearchTree implements Visitor {
   }
 
   /**
-   * If successor is not the right child of delNode, replace successor's right
+   * Helper method for deletion. If successor is not the right child of delNode, replace successor's right
    * child to successor's parent's left child.
    * 
    * @param delNode
@@ -215,6 +215,15 @@ public class BinarySearchTree implements Visitor {
       successor.rightChild = delNode.rightChild;
     }
     return successor;
+  }
+
+  public int height(Node localRoot) {
+    if (localRoot == null) {
+      return 0;
+    }
+    int leftHeight = height(localRoot.leftChild);
+    int rightHeight = height(localRoot.rightChild);
+    return (leftHeight > rightHeight) ? leftHeight + 1 : rightHeight + 1;
   }
 
 }
