@@ -337,7 +337,7 @@ public class BinarySearchTree implements Visitor {
   }
 
   /**
-   * use BSF like to build linked list level by level
+   * Question 4.4 use BSF like to build linked list level by level
    * 
    * @param lroot
    * @return
@@ -366,31 +366,92 @@ public class BinarySearchTree implements Visitor {
     return levelLists;
   }
 
+  /**
+   * Question 4.5 check if a tree is a binary search tree.
+   * 
+   * @param lroot
+   * @param arr
+   */
   public static void copyBST(Node lroot, ArrayList<Node> arr) {
-    if(lroot == null){
+    if (lroot == null) {
       return;
     }
     copyBST(lroot.leftChild, arr);
     arr.add(lroot);
-    copyBST(lroot.rightChild,arr);
+    copyBST(lroot.rightChild, arr);
   }
-  
-  public static boolean checkBST(Node lroot){
+
+  public static boolean checkBST(Node lroot) {
     ArrayList<Node> nodes = new ArrayList<Node>();
-    copyBST(lroot,nodes);
-    for(int i = 0; i < nodes.size()-1; i++){
-      if(nodes.get(i).data >  nodes.get(i+1).data){
+    copyBST(lroot, nodes);
+    for (int i = 0; i < nodes.size() - 1; i++) {
+      if (nodes.get(i).data > nodes.get(i + 1).data) {
         return false;
       }
     }
     return true;
   }
 
+  /**
+   * Question 4.5
+   * use a wrapper integer class to mimic passing by
+   * reference,because primitive type is passed by value.
+   * 
+   * @param lroot
+   * @return
+   */
+  private static class IntWrapper {
+    int value = Integer.MIN_VALUE;
+  }
+
+  public static boolean checkBST2(Node lroot, IntWrapper lastEle) {
+    if (lroot == null) {
+      return true;
+    }
+
+    if (checkBST2(lroot.leftChild, lastEle) == false) {
+      return false;
+    }
+
+    if (lroot.data < lastEle.value) {
+      return false;
+    }
+    lastEle.value = lroot.data;
+
+    if (checkBST2(lroot.rightChild, lastEle) == false) {
+      return false;
+    }
+
+    return true;
+  }
+
+  public boolean checkBST2Helper() {
+    return checkBST2(root, new IntWrapper());
+  }
   
-  
-  
+  /**
+   * Question 4.5. passing down min, max to check the range
+   * @param lroot
+   * @param min
+   * @param max
+   * @return
+   */
+  public boolean checkBST3(Node lroot, int min, int max){
+    if(lroot == null)
+      return true;
+    
+    if(lroot.data > max || lroot.data < min)
+      return false;
+    
+    if(checkBST3(lroot.leftChild, min, lroot.data) == false ||
+        checkBST3(lroot.rightChild, lroot.data, max) == false)
+      return false;
+    
+    return true;
+  }
+
+  public boolean checkBST3(){
+    return checkBST3(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+  }
   
 }
-
-
-

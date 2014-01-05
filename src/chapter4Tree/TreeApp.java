@@ -53,7 +53,9 @@ public class TreeApp {
     sop("create level linked list");
     printTreeLevel(tree);
     sop("check BST");
-    sop(BinarySearchTree.checkBST(tree.getRoot()));
+//    sop(BinarySearchTree.checkBST(tree.getRoot()));
+//    sop(tree.checkBST2Helper());
+    sop(tree.checkBST3());
     
     BinarySearchTree.Node root = new BinarySearchTree.Node(100);
     BinarySearchTree.Node child1 = new BinarySearchTree.Node(50);
@@ -66,7 +68,9 @@ public class TreeApp {
     BinarySearchTree notBST = new BinarySearchTree(root);
     printTreeLevel(notBST);
     sop("check BST");
-    sop(BinarySearchTree.checkBST(notBST.getRoot()));
+//    sop(BinarySearchTree.checkBST(notBST.getRoot()));
+//    sop(notBST.checkBST2Helper());
+    sop(notBST.checkBST3());
 
   }
 }
