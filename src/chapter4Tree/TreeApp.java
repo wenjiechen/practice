@@ -34,6 +34,10 @@ public class TreeApp {
     tree.insert(120);
     tree.insert(110);
     tree.insert(130);
+    tree.insert(46);
+    tree.insert(47);
+    tree.insert(48);
+    tree.insert(49);
 
     sop("inorder:");
     tree.inOrder();
@@ -53,10 +57,10 @@ public class TreeApp {
     sop("create level linked list");
     printTreeLevel(tree);
     sop("check BST");
-//    sop(BinarySearchTree.checkBST(tree.getRoot()));
-//    sop(tree.checkBST2Helper());
+    // sop(BinarySearchTree.checkBST(tree.getRoot()));
+    // sop(tree.checkBST2Helper());
     sop(tree.checkBST3());
-    
+
     BinarySearchTree.Node root = new BinarySearchTree.Node(100);
     BinarySearchTree.Node child1 = new BinarySearchTree.Node(50);
     BinarySearchTree.Node child2 = new BinarySearchTree.Node(40);
@@ -68,9 +72,17 @@ public class TreeApp {
     BinarySearchTree notBST = new BinarySearchTree(root);
     printTreeLevel(notBST);
     sop("check BST");
-//    sop(BinarySearchTree.checkBST(notBST.getRoot()));
-//    sop(notBST.checkBST2Helper());
+    // sop(BinarySearchTree.checkBST(notBST.getRoot()));
+    // sop(notBST.checkBST2Helper());
     sop(notBST.checkBST3());
+
+    sop("==============");
+    sop("inorder");
+    tree.inOrder();
+    sop("==============");
+    BinarySearchTree.Node ret = new BinarySearchTree.Node(0);
+    tree.inorderSucc(tree.getRoot(), 58, new BinarySearchTree.Node(0), ret);
+    sop(ret);
 
   }
 }

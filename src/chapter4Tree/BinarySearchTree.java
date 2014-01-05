@@ -9,6 +9,7 @@ public class BinarySearchTree implements Visitor {
     int data;
     Node leftChild = null;
     Node rightChild = null;
+    Node parent = null;
 
     public Node(int data) {
       this.data = data;
@@ -48,12 +49,14 @@ public class BinarySearchTree implements Visitor {
           cur = cur.leftChild;
           if (cur == null) {
             parent.leftChild = newNode;
+            newNode.parent = parent;
             return;
           }
         } else {
           cur = cur.rightChild;
           if (cur == null) {
             parent.rightChild = newNode;
+            newNode.parent = parent;
             return;
           }
         }
@@ -393,8 +396,7 @@ public class BinarySearchTree implements Visitor {
   }
 
   /**
-   * Question 4.5
-   * use a wrapper integer class to mimic passing by
+   * Question 4.5 use a wrapper integer class to mimic passing by
    * reference,because primitive type is passed by value.
    * 
    * @param lroot
@@ -428,30 +430,87 @@ public class BinarySearchTree implements Visitor {
   public boolean checkBST2Helper() {
     return checkBST2(root, new IntWrapper());
   }
-  
+
   /**
    * Question 4.5. passing down min, max to check the range
+   * 
    * @param lroot
    * @param min
    * @param max
    * @return
    */
-  public boolean checkBST3(Node lroot, int min, int max){
-    if(lroot == null)
+  public boolean checkBST3(Node lroot, int min, int max) {
+    if (lroot == null)
       return true;
-    
-    if(lroot.data > max || lroot.data < min)
+
+    if (lroot.data > max || lroot.data < min)
       return false;
-    
-    if(checkBST3(lroot.leftChild, min, lroot.data) == false ||
-        checkBST3(lroot.rightChild, lroot.data, max) == false)
+
+    if (checkBST3(lroot.leftChild, min, lroot.data) == false
+        || checkBST3(lroot.rightChild, lroot.data, max) == false)
       return false;
-    
+
     return true;
   }
 
-  public boolean checkBST3(){
+  public boolean checkBST3() {
     return checkBST3(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
   }
+
+  /**
+   * Question 4.6, find in-order traverse successor.
+   * 
+   * @param lroot
+   *          the current traverse node
+   * @param key
+   *          find the successor of 'key'
+   * @param lastEle
+   *          the last traverse node of lroot node
+   * @param ret
+   *          represent the found successor. Have to copy data to ret. can't
+   *          just copy lroot's reference to ret, because java's parameter is
+   *          passed by value. if assign ret = lroot, the new ret can't be
+   *          passed back.
+   */
+  public void inorderSucc(Node lroot, int key, Node lastEle, Node ret) {
+    if (lroot == null) {
+      return;
+    }
+    inorderSucc(lroot.leftChild, key, lastEle, ret);
+    // found the successor
+    if (lastEle.data == key) {
+      System.out.println("successor: " + lroot.data);
+      // have to copy data to ret. can't just copy lroot's reference to ret.
+      // because java's parameter is passed by value. if assign ret = lroot, the
+      // new ret can't be passed back.
+      ret.data = lroot.data;
+      lastEle.data = lroot.data;
+      return;
+    }
+    lastEle.data = lroot.data;
+    inorderSucc(lroot.rightChild, key, lastEle, ret);
+  }
+
+  public Node inorderSucc(Node lroot){
+    if(lroot == null)
+      return null;
+
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 }
+
+
+
+
+
