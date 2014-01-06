@@ -40,6 +40,7 @@ public class BinarySearchTree implements Visitor {
     Node newNode = new Node(data);
     if (root == null) {
       root = newNode;
+      root.parent = null;
     } else {
       Node cur = root;
       Node parent = cur;
@@ -62,6 +63,12 @@ public class BinarySearchTree implements Visitor {
         }
       }
     }
+  }
+
+  public Node getParent(Node lroot) {
+    if (lroot == null || lroot == root)
+      return null;
+    return lroot.parent;
   }
 
   public Node find(int key) throws Exception {
@@ -491,26 +498,34 @@ public class BinarySearchTree implements Visitor {
     inorderSucc(lroot.rightChild, key, lastEle, ret);
   }
 
-  public Node inorderSucc(Node lroot){
-    if(lroot == null)
+  /**
+   * 
+   * @param lroot
+   * @return
+   */
+  public static Node inorderSucc(Node lroot) {
+    if (lroot == null)
       return null;
-
-    
+    if (lroot.rightChild != null) {
+      Node cur = lroot.rightChild;
+      Node parent = cur;
+      while (cur != null) {
+        parent = cur;
+        cur = cur.leftChild;
+      }
+      return parent;
+    } else {
+      Node cur = lroot;
+      Node parent = lroot.parent;
+      while (cur != parent.leftChild && parent != null) {
+        cur = cur.parent;
+        parent = parent.parent;
+      }
+      if (parent != null) {
+        return parent;
+      }
+      return null;
+    }
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
 }
-
-
-
-
-

@@ -84,5 +84,18 @@ public class TreeApp {
     tree.inorderSucc(tree.getRoot(), 58, new BinarySearchTree.Node(0), ret);
     sop(ret);
 
+    // ===Question 4.6
+    sop("find parent");
+    try {
+      sop(tree.getParent(tree.find(49)));
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    sop("find parent2");
+    try {
+      sop(BinarySearchTree.inorderSucc(tree.find(49)));
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }
