@@ -1,6 +1,6 @@
 package chapter4Tree;
 
-import chapter4Tree.BinarySearchTree.Node;
+import chapter4Tree.BST.Node;
 
 public class Questions {
 

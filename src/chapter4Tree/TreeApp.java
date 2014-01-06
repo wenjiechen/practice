@@ -3,14 +3,14 @@ package chapter4Tree;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import chapter4Tree.BinarySearchTree.Node;
+import chapter4Tree.BST.Node;
 
 public class TreeApp {
   private static void sop(Object x) {
     System.out.println(x);
   }
 
-  public static void printTreeLevel(BinarySearchTree tree) {
+  public static void printTreeLevel(BST tree) {
     int level = 0;
     for (LinkedList<Node> list : tree.createLevelLinkedList(tree.getRoot())) {
       System.out.print("level " + (level++) + ":");
@@ -22,7 +22,7 @@ public class TreeApp {
   }
 
   public static void main(String[] args) {
-    BinarySearchTree tree = new BinarySearchTree();
+    BST tree = new BST();
     tree.insert(50);
     tree.insert(45);
     tree.insert(30);
@@ -40,6 +40,12 @@ public class TreeApp {
     tree.insert(48);
     tree.insert(49);
 
+    BST tree2 = new BST();
+    tree2.insert(60);
+    tree2.insert(55);
+    tree2.insert(58);
+    tree2.insert(75);
+
     sop("inorder:");
     tree.inOrder();
     // sop(tree.delete(80));
@@ -51,8 +57,7 @@ public class TreeApp {
     sop(tree.isBlanced(tree.getRoot()));
     sop("create a tree using array");
     int[] arr = { 12, 20, 26, 32, 48, 55, 87, 95, 100 };
-    BinarySearchTree t2 = new BinarySearchTree(BinarySearchTree.createBST(arr,
-        0, arr.length - 1));
+    BST t2 = new BST(BST.createBST(arr, 0, arr.length - 1));
     sop("inorder t2");
     t2.inOrder();
     sop("create level linked list");
@@ -62,15 +67,15 @@ public class TreeApp {
     // sop(tree.checkBST2Helper());
     sop(tree.checkBST3());
 
-    BinarySearchTree.Node root = new BinarySearchTree.Node(100);
-    BinarySearchTree.Node child1 = new BinarySearchTree.Node(50);
-    BinarySearchTree.Node child2 = new BinarySearchTree.Node(40);
-    BinarySearchTree.Node child3 = new BinarySearchTree.Node(60);
+    BST.Node root = new BST.Node(100);
+    BST.Node child1 = new BST.Node(50);
+    BST.Node child2 = new BST.Node(40);
+    BST.Node child3 = new BST.Node(60);
     root.leftChild = child1;
     root.rightChild = child3;
     child1.leftChild = child2;
     sop("create a no binary-search tree");
-    BinarySearchTree notBST = new BinarySearchTree(root);
+    BST notBST = new BST(root);
     printTreeLevel(notBST);
     sop("check BST");
     sop(notBST.checkBST3());
@@ -79,8 +84,8 @@ public class TreeApp {
     sop("inorder");
     tree.inOrder();
     sop("==============");
-    BinarySearchTree.Node ret = new BinarySearchTree.Node(0);
-    tree.inorderSucc(tree.getRoot(), 58, new BinarySearchTree.Node(0), ret);
+    BST.Node ret = new BST.Node(0);
+    tree.inorderSucc(tree.getRoot(), 58, new BST.Node(0), ret);
     sop(ret);
 
     // ===Question 4.6
@@ -92,7 +97,7 @@ public class TreeApp {
     }
     sop("find parent2");
     try {
-      sop(BinarySearchTree.inorderSucc(tree.find(49)));
+      sop(BST.inorderSucc(tree.find(49)));
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -103,10 +108,16 @@ public class TreeApp {
     sop(tree.commonAncestorForNotBST(tree.getRoot(), 75, 58));
 
     sop("find path to root");
-    ArrayList<BinarySearchTree.Node> stack = new ArrayList<BinarySearchTree.Node>();
+    ArrayList<BST.Node> stack = new ArrayList<BST.Node>();
     tree.findPath(tree.getRoot(), 49, stack);
-    for (BinarySearchTree.Node n : stack) {
+    for (BST.Node n : stack) {
       sop(n);
     }
+
+    sop("find common ancestor");
+    sop(tree.commonAncestorHelper(75, 111));
+    // ==================question 4.8
+    sop("is tree2 a subtree of tree1");
+    sop(tree.isSubtree(tree.getRoot(), tree2.getRoot()));
   }
 }
