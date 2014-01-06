@@ -97,5 +97,7 @@ public class TreeApp {
     } catch (Exception e) {
       e.printStackTrace();
     }
+    sop("find common ancestor");
+    sop(tree.commonAncestor(tree.getRoot(), 58, 110));
   }
 }

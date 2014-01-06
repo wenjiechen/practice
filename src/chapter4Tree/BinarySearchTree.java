@@ -499,6 +499,9 @@ public class BinarySearchTree implements Visitor {
   }
 
   /**
+   * If a node has a reference to it's parent, use iteration to find in order
+   * successor. If the node has right child, find the left most node in its
+   * right child, otherwise find its first ancestor the node which is the
    * 
    * @param lroot
    * @return
@@ -526,6 +529,40 @@ public class BinarySearchTree implements Visitor {
       }
       return null;
     }
+  }
+
+  public boolean findNode(Node lroot, int key) {
+    if (lroot == null) {
+      return false;
+    }
+    if (lroot.data == key)
+      return true;
+    if (key < lroot.data) {
+      return findNode(lroot.leftChild, key);
+    } else {
+      return findNode(lroot.rightChild, key);
+    }
+  }
+
+  /**
+   * post-order traverse to find the common ancestor.
+   * @param lroot
+   * @param key1
+   * @param key2
+   * @return
+   */
+  public Node commonAncestor(Node lroot, int key1, int key2) {
+    if (lroot == null)
+      return null;
+    Node ret = commonAncestor(lroot.leftChild, key1, key2);
+    if (ret == null) {
+      ret = commonAncestor(lroot.rightChild, key1, key2);
+    }
+    if (ret == null) {
+      if (findNode(lroot, key1) && findNode(lroot, key2))
+        ret = lroot;
+    }
+    return ret;
   }
 
 }
