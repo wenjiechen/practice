@@ -598,4 +598,28 @@ public class BinarySearchTree implements Visitor {
       return lroot;
   }
 
+  /**
+   * find the path from root to the node. save the path in a stack
+   * 
+   * @param lroot
+   * @param key
+   * @param stack
+   * @return
+   */
+  public boolean findPath(Node lroot, int key, ArrayList<Node> stack) {
+    if (lroot == null)
+      return false;
+    if (findPath(lroot.leftChild, key, stack)
+        || findPath(lroot.rightChild, key, stack)) {
+      stack.add(lroot);
+      return true;
+    }
+    if (lroot.data == key) {
+      stack.add(lroot);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

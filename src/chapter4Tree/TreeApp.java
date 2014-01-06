@@ -1,5 +1,6 @@
 package chapter4Tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import chapter4Tree.BinarySearchTree.Node;
@@ -100,5 +101,12 @@ public class TreeApp {
     sop(tree.commonAncestor(tree.getRoot(), 75, 58));
     sop("in not BST find common ancestor");
     sop(tree.commonAncestorForNotBST(tree.getRoot(), 75, 58));
+
+    sop("find path to root");
+    ArrayList<BinarySearchTree.Node> stack = new ArrayList<BinarySearchTree.Node>();
+    tree.findPath(tree.getRoot(), 49, stack);
+    for (BinarySearchTree.Node n : stack) {
+      sop(n);
+    }
   }
 }
