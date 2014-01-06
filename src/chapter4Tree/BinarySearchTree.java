@@ -545,7 +545,8 @@ public class BinarySearchTree implements Visitor {
   }
 
   /**
-   * post-order traverse to find the common ancestor.
+   * For Binary search Tree, post-order traverse to find the common ancestor.
+   * 
    * @param lroot
    * @param key1
    * @param key2
@@ -563,6 +564,38 @@ public class BinarySearchTree implements Visitor {
         ret = lroot;
     }
     return ret;
+  }
+
+  private boolean covers(Node lroot, int key) {
+    if (lroot == null)
+      return false;
+    if (lroot.data == key)
+      return true;
+    return covers(lroot.leftChild, key) || covers(lroot.rightChild, key);
+  }
+
+  /**
+   * find two nodes' common ancestor in a binary tree(not binary search tree).
+   * If key1 and key2 both are in the left side of lroot, their common ancestor
+   * is in the left side of lroot. If key1 and key2 are in the different sides
+   * of lroot, lroot is their common ancestor.
+   * 
+   * @param lroot
+   * @param key1
+   * @param key2
+   * @return
+   */
+  public Node commonAncestorForNotBST(Node lroot, int key1, int key2) {
+    if (lroot == null)
+      return null;
+    if (covers(lroot, key1) == false || covers(lroot, key2) == false)
+      return null;
+    if (covers(lroot.leftChild, key1) && covers(lroot.leftChild, key2))
+      return commonAncestor(lroot.leftChild, key1, key2);
+    else if (covers(lroot.rightChild, key1) && covers(lroot.rightChild, key2))
+      return commonAncestor(lroot.rightChild, key1, key2);
+    else
+      return lroot;
   }
 
 }

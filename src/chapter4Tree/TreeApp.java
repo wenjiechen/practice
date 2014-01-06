@@ -72,8 +72,6 @@ public class TreeApp {
     BinarySearchTree notBST = new BinarySearchTree(root);
     printTreeLevel(notBST);
     sop("check BST");
-    // sop(BinarySearchTree.checkBST(notBST.getRoot()));
-    // sop(notBST.checkBST2Helper());
     sop(notBST.checkBST3());
 
     sop("==============");
@@ -97,7 +95,10 @@ public class TreeApp {
     } catch (Exception e) {
       e.printStackTrace();
     }
+    // =====Question 4.7
     sop("find common ancestor");
-    sop(tree.commonAncestor(tree.getRoot(), 58, 110));
+    sop(tree.commonAncestor(tree.getRoot(), 75, 58));
+    sop("in not BST find common ancestor");
+    sop(tree.commonAncestorForNotBST(tree.getRoot(), 75, 58));
   }
 }
