@@ -720,4 +720,62 @@ public class BST implements Visitor {
       return false;
   }
 
+  /**
+   * Question 4.9 helper method
+   * 
+   * @param stack
+   * @return
+   */
+  int sumOfStack(ArrayList<Node> stack) {
+    int sum = 0;
+    for (Node n : stack) {
+      sum += n.data;
+    }
+    return sum;
+  }
+
+  /**
+   * Question  4.9 helper mehtod
+   * @param stack
+   */
+  void printStack(ArrayList<Node> stack) {
+    System.out.print("find the sum path: ");
+    for (Node n : stack) {
+      System.out.print(n + ", ");
+    }
+    System.out.println();
+  }
+
+  /**
+   * 
+   * @param lroot
+   * @param sum
+   * @param stack
+   */
+  void findSumPathHelper(Node lroot, int sum, ArrayList<Node> stack) {
+    if (lroot == null)
+      return;
+    stack.add(lroot);
+    if (sumOfStack(stack) == sum) {
+      printStack(stack);
+    }
+    findSumPathHelper(lroot.leftChild, sum, stack);
+    findSumPathHelper(lroot.rightChild, sum, stack);
+    // pop current node from stack, when return to upper level
+    stack.remove(stack.size() - 1);
+  }
+
+  void findSumPath(Node lroot, int sum) {
+    ArrayList<Node> stack = new ArrayList<Node>();
+    findSumPathHelper(lroot, sum, stack);
+  }
+
+  void findSumPathes(Node lroot, int sum) {
+    if (lroot == null)
+      return;
+    findSumPath(lroot, sum);
+    findSumPathes(lroot.leftChild, sum);
+    findSumPathes(lroot.rightChild, sum);
+  }
+
 }

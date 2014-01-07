@@ -46,6 +46,13 @@ public class TreeApp {
     tree2.insert(58);
     tree2.insert(75);
 
+    BST tree3 = new BST();
+    tree3.insert(80);
+    tree3.insert(60);
+    tree3.insert(55);
+    tree3.insert(58);
+    tree3.insert(75);
+
     sop("inorder:");
     tree.inOrder();
     // sop(tree.delete(80));
@@ -119,5 +126,28 @@ public class TreeApp {
     // ==================question 4.8
     sop("is tree2 a subtree of tree1");
     sop(tree.isSubtree(tree.getRoot(), tree2.getRoot()));
+    sop("is tree3 a subtree of tree1");
+    sop(tree.isSubtree(tree.getRoot(), tree3.getRoot()));
+    sop("is tree2 a subtree of tree3");
+    sop(tree.isSubtree(tree3.getRoot(), tree2.getRoot()));
+    sop("============substring");
+    sop("abcdefghijklmn".indexOf("efg"));
+    sop("abcdefghijklmn".contains("efg"));
+
+    // ==question4.9
+    sop("find sum path");
+    BST sumPathTree = new BST();
+    sumPathTree.insert(100);
+    sumPathTree.insert(40);
+    sumPathTree.insert(30);
+    sumPathTree.insert(20);
+    sumPathTree.insert(10);
+    sumPathTree.insert(50);
+    sumPathTree.insert(60);
+    sumPathTree.insert(70);
+    sumPathTree.insert(120);
+
+    sumPathTree.findSumPathes(sumPathTree.getRoot(), 220);
+
   }
 }
