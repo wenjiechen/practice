@@ -147,7 +147,8 @@ public class TreeApp {
     sumPathTree.insert(70);
     sumPathTree.insert(120);
 
-    sumPathTree.findSumPathes(sumPathTree.getRoot(), 220);
-
+    System.out.println("find the sum of path equals 220");
+//    sumPathTree.findSumPathes(sumPathTree.getRoot(), 220);
+    sumPathTree.findSumPath2(220);
   }
 }

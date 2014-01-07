@@ -735,7 +735,8 @@ public class BST implements Visitor {
   }
 
   /**
-   * Question  4.9 helper mehtod
+   * Question 4.9 helper mehtod
+   * 
    * @param stack
    */
   void printStack(ArrayList<Node> stack) {
@@ -747,6 +748,8 @@ public class BST implements Visitor {
   }
 
   /**
+   * store the path from root to current node into a stack, if the sum of the
+   * stack's nodes equals the 'sum' parameter, print the path.
    * 
    * @param lroot
    * @param sum
@@ -755,6 +758,7 @@ public class BST implements Visitor {
   void findSumPathHelper(Node lroot, int sum, ArrayList<Node> stack) {
     if (lroot == null)
       return;
+    // add current node to stack
     stack.add(lroot);
     if (sumOfStack(stack) == sum) {
       printStack(stack);
@@ -765,17 +769,67 @@ public class BST implements Visitor {
     stack.remove(stack.size() - 1);
   }
 
+  /**
+   * find sum path in lroot's subtrees
+   * 
+   * @param lroot
+   * @param sum
+   */
   void findSumPath(Node lroot, int sum) {
     ArrayList<Node> stack = new ArrayList<Node>();
     findSumPathHelper(lroot, sum, stack);
   }
 
+  /**
+   * find sum path in each node's subtrees
+   * 
+   * @param lroot
+   * @param sum
+   */
   void findSumPathes(Node lroot, int sum) {
     if (lroot == null)
       return;
     findSumPath(lroot, sum);
     findSumPathes(lroot.leftChild, sum);
     findSumPathes(lroot.rightChild, sum);
+  }
+
+  void checkSumPath(ArrayList<Node> stack, int sum) {
+    int ret = 0;
+    for (int i = stack.size() - 1; i >= 0; i--) {
+      ret += stack.get(i).data;
+      if (ret == sum) {
+        // print path
+        for (int j = i; j < stack.size(); j++) {
+          System.out.print(stack.get(j));
+        }
+        System.out.println();
+      }
+    }
+  }
+
+  /**
+   * look "up" the stack from current node, to find the path equals the given sum.
+   * @param lroot
+   * @param sum
+   * @param stack
+   */
+  void findSumPath2Helper(Node lroot, int sum, ArrayList<Node> stack) {
+    if (lroot == null) {
+      return;
+    }
+    stack.add(lroot);
+    checkSumPath(stack, sum);
+    findSumPath2Helper(lroot.leftChild, sum, stack);
+    findSumPath2Helper(lroot.rightChild, sum, stack);
+    stack.remove(stack.size() - 1);
+  }
+
+  void findSumPath2(int sum) {
+    if (root == null)
+      return;
+    ArrayList<Node> stack = new ArrayList<Node>();
+    findSumPath2Helper(root, sum, stack);
   }
 
 }
