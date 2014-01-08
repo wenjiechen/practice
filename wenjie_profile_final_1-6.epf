@@ -1,4 +1,4 @@
-#Sat Jan 04 11:54:13 EST 2014
+#Wed Jan 08 00:03:23 EST 2014
 /instance/org.eclipse.team.ui/org.eclipse.team.ui.first_time=false
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.localVariable.italic=false
 /instance/org.eclipse.jdt.ui/java_operator=216,216,216
@@ -42,6 +42,7 @@
 /instance/org.python.pydev/CLASS_NAME_COLOR=210,82,82
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_allocation_expression=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.blank_lines_before_package=0
+/instance/org.eclipse.debug.ui/preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|
 /instance/org.eclipse.cdt.ui/semanticHighlighting.class.enabled=true
 /instance/org.eclipse.wst.css.ui/CLASS=\#FFFFFF | null | false | false | false | false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_ellipsis=do not insert
@@ -385,6 +386,7 @@
 /instance/org.eclipse.datatools.sqltools.sqleditor/Others=0,0,0,0,0,216,216,216
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_comma_in_constructor_declaration_parameters=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_ellipsis=insert
+/instance/org.eclipse.debug.ui/Console.highWaterMark=88000
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.parameterVariable.enabled=true
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.method.enabled=true
 /instance/org.eclipse.ui.workbench/ColorsAndFontsPreferencePage.selectedElement=Forg.eclipse.jdt.ui.editors.textfont
@@ -406,6 +408,7 @@
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_parenthesized_expression_in_throw=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_after_opening_paren_in_method_invocation=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_in_empty_type_declaration=insert
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.outColor=255,255,255
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.field.color=190,214,255
 /instance/org.epic.perleditor/literal1Color=255,198,0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_annotation_type_member_declaration=do not insert
@@ -727,6 +730,7 @@ file_export_version=3.0
 /instance/org.eclipse.cdt.ui/semanticHighlighting.method.enabled=true
 /instance/org.epic.perleditor/comment1Color=199,221,12
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.class.italic=false
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.cancel_launch_with_compile_errors=always
 /instance/org.eclipse.jdt.ui/semanticHighlighting.staticField.strikethrough=false
 /instance/org.eclipse.cdt.ui/semanticHighlighting.methodDeclaration.enabled=true
 /instance/org.eclipse.cdt.ui/semanticHighlighting.class.italic=false
@@ -765,6 +769,8 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.indent_body_declarations_compare_to_enum_declaration_header=true
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_method_invocation=do not insert
 /instance/org.eclipse.php.ui/editorColorVariable=\#79ABFF | null | false | false | false | false
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.consoleBackground=0,0,0
+/instance/org.eclipse.debug.ui/pref_state_memento.org.eclipse.debug.ui.VariableView=<?xml version\="1.0" encoding\="UTF-8"?>\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="181" org.eclipse.debug.ui.SASH_VIEW_PART\="811">\n<PRESENTATION_CONTEXT_PROPERTIES IMemento.internal.id\="org.eclipse.debug.ui.VariableView"/>\n</VariablesViewMemento>
 /instance/org.eclipse.jdt.ui/semanticHighlighting.deprecatedMember.strikethrough=true
 /instance/org.codehaus.groovy.eclipse.ui/semanticHighlighting.class.color=210,82,82
 /instance/org.eclipse.php.ui/semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.InternalConstantHighlighting.italic=false
@@ -939,8 +945,9 @@ file_export_version=3.0
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_comma_in_constructor_declaration_parameters=do not insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation=16
 @org.eclipse.ui.browser=3.4.100.v20130527-1656
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.switch_perspective_on_suspend=always
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_between_empty_parens_in_annotation_type_member_declaration=do not insert
-/instance/org.eclipse.jdt.ui/content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
+/instance/org.eclipse.jdt.ui/content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="chapter4Tree.BinarySearchTree$Node"><rhs name\="chapter4Tree.BinarySearchTree$Node"/></lhs></history>
 /instance/com.adobe.flexide.css.core/cssStringColor=\#FFC600
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_new_line_after_annotation_on_package=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.brace_position_for_constructor_declaration=end_of_line
