@@ -210,6 +210,36 @@ public class Sort {
     exch(a, lo, j);
     return j;
   }
+  /**
+   * 
+   * bottom-up reheapify if a node violates heap order and larger than it's
+   * parent, it will swim up to right position
+   */
+  private static void swim(Comparable[] a, int k) {
+    while (k > 1 && less(a[k / 2], a[k])) {
+      exch(a, k / 2, k);
+      k = k / 2;
+    }
+  }
+
+  /**
+   * top down reheapify
+   * 
+   * @param a
+   * @param k
+   * @param N
+   */
+  private static void sink(Comparable[] a, int k, int N) {
+    while (k * 2 < N) {
+      int j = k * 2;
+      if (j < N && less(a[j], a[j + 1]))
+        j++;
+      if (!less(a[k], a[j]))
+        break;
+      exch(a, k, j);
+      k = j;
+    }
+  }
 
   public static void main(String[] args) {
     Random rand = new Random(47);
