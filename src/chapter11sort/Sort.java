@@ -1,6 +1,8 @@
 package chapter11sort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -179,24 +181,199 @@ public class Sort {
     return searchString(a, 0, a.length - 1, str);
   }
 
-  private class pos {
-    int x;
-    int y;
+  /**
+   * question 11.6, coordiante of matrix,
+   * 
+   * @author wenjie
+   * 
+   */
+  static class Coordinate implements Cloneable {
+    public int row;
+    public int column;
 
-    pos(int x, int y) {
-      this.x = x;
-      this.y = y;
+    public Coordinate(int r, int c) {
+      row = r;
+      column = c;
+    }
+
+    public boolean inbounds(int[][] matrix) {
+      return row >= 0 && column >= 0 && row < matrix.length
+          && column < matrix[0].length;
+    }
+
+    public boolean isBefore(Coordinate p) {
+      return row <= p.row && column <= p.column;
+    }
+
+    public Object clone() {
+      return new Coordinate(row, column);
+    }
+
+    public void setToAverage(Coordinate min, Coordinate max) {
+      row = (min.row + max.row) >>> 1;
+      column = (min.column + max.column) >>> 1;
+    }
+
+    @Override
+    public String toString() {
+      return new String("pos: (" + row + ", " + column + ")");
     }
   }
 
-  public static pos searchMatrix(int[][] a, int key, int left, int right,
-      int up, int down) {
-    if (left > right || up > down)
-      return new pos(-1, -1);
-    int mlevel = (left + right)/2;
-    int mvertical = (up + down)/2;
-    if(a[mlevel][mvertical] == key)
-      return new pos(mlevel,mvertical);
-    else if(key < )
+  /**
+   * 
+   * @param matrix
+   * @param origin
+   * @param dest
+   * @param pivot
+   * @param elem
+   * @return
+   */
+  public static Coordinate partitionAndSearch(int[][] matrix,
+      Coordinate origin, Coordinate dest, Coordinate pivot, int elem) {
+    Coordinate lowerLeftOrigin = new Coordinate(pivot.row, origin.column);
+    Coordinate lowerLeftDest = new Coordinate(dest.row, pivot.column - 1);
+    Coordinate upperRightOrigin = new Coordinate(origin.row, pivot.column);
+    Coordinate upperRightDest = new Coordinate(pivot.row - 1, dest.column);
+
+    Coordinate lowerLeft = findElement(matrix, lowerLeftOrigin, lowerLeftDest,
+        elem);
+    if (lowerLeft == null)
+      return findElement(matrix, upperRightOrigin, upperRightDest, elem);
+    return lowerLeft;
   }
+
+  /**
+   * question 11.6,
+   * 
+   * @param matrix
+   * @param origin
+   * @param dest
+   * @param x
+   * @return
+   */
+  private static Coordinate findElement(int[][] matrix, Coordinate origin,
+      Coordinate dest, int x) {
+    if (!origin.inbounds(matrix) || !dest.inbounds(matrix))
+      return null;
+    if (matrix[origin.row][origin.column] == x)
+      return origin;
+    else if (!origin.isBefore(dest))
+      return null;
+
+    Coordinate start = (Coordinate) origin.clone();
+    int diagDist = Math.min(dest.row - origin.row, dest.column - origin.column);
+    Coordinate end = new Coordinate(start.row + diagDist, start.column
+        + diagDist);
+    Coordinate mid = new Coordinate(0, 0);
+
+    while (start.isBefore(end)) {
+      mid.setToAverage(start, end);
+      // if (x == matrix[mid.row][mid.column])
+      // return mid;
+      if (x > matrix[mid.row][mid.column]) {
+        start.row = mid.row + 1;
+        start.column = mid.column + 1;
+      } else {
+        end.row = mid.row - 1;
+        end.column = mid.column - 1;
+      }
+    }
+
+    return partitionAndSearch(matrix, origin, dest, start, x);
+  }
+
+  public static Coordinate findElement(int[][] matrix, int x) {
+    System.out.println("find element: " + x);
+    if (matrix == null)
+      return null;
+    return findElement(matrix, new Coordinate(0, 0), new Coordinate(
+        matrix.length - 1, matrix[0].length - 1), x);
+  }
+
+  static class Person implements Comparable {
+    int height;
+    int weight;
+
+    Person(int h, int w) {
+      height = h;
+      weight = w;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+      Person oth = (Person) o;
+      if (height != oth.height) {
+        return ((Integer) height).compareTo(oth.height);
+      } else {
+        return ((Integer) weight).compareTo(oth.weight);
+      }
+    }
+
+    public boolean isBefore(Person oth) {
+      return height < oth.height && weight < oth.weight;
+    }
+
+    @Override
+    public String toString() {
+      return new String("(" + height + ", " + weight + ")");
+    }
+  }
+
+  static ArrayList<Person> maxLength(ArrayList<Person> s1, ArrayList<Person> s2) {
+    if (s1 == null)
+      return s2;
+    if (s2 == null)
+      return s1;
+    return (s1.size() > s2.size()) ? s1 : s2;
+  }
+
+  static void longestIncreasingSubsequence(ArrayList<Person> persons,
+      ArrayList<Person>[] solutions, int cur_id) {
+    if (cur_id >= persons.size() || cur_id < 0)
+      return;
+    Person curPerson = persons.get(cur_id);
+
+    /* find the longest sequence which can append current person */
+    ArrayList<Person> bestSequence = null;
+    for (int i = 0; i < cur_id; i++) {
+      if (persons.get(i).isBefore(curPerson)) {
+        bestSequence = maxLength(bestSequence, solutions[i]);
+      }
+    }
+
+    /* append curPerson to bestSequence */
+    ArrayList<Person> newSolution = new ArrayList<Person>();
+    if (bestSequence != null) {
+      newSolution.addAll(bestSequence);
+    }
+    newSolution.add(curPerson);
+
+    solutions[cur_id] = newSolution;
+    longestIncreasingSubsequence(persons, solutions, ++cur_id);
+  }
+
+  static ArrayList<Person> longestIncreasingSubsequence(
+      ArrayList<Person> persons) {
+    ArrayList<Person>[] solutions = new ArrayList[persons.size()];
+    longestIncreasingSubsequence(persons, solutions, 0);
+    int maxLengthIndex = 0;
+    int maxLength = 0;
+    for (int i = 0; i < persons.size(); i++) {
+      if (solutions[i].size() > maxLength) {
+        maxLength = solutions[i].size();
+        maxLengthIndex = i;
+      }
+    }
+
+    return solutions[maxLengthIndex];
+  }
+
+  public static ArrayList<Person> getLongestSequence(ArrayList<Person> persons) {
+    Collections.sort(persons);
+    System.out.println("after sort by height");
+    System.out.println(persons);
+    return longestIncreasingSubsequence(persons);
+  }
+
 }

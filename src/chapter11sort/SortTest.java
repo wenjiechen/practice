@@ -1,5 +1,6 @@
 package chapter11sort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -75,10 +76,35 @@ public class SortTest {
     println(Sort.searchString(a, "c"));
   }
 
+  private static void test6() {
+    println("question 11.6");
+    int[][] matrix = { { 1, 2, 3, 4, 5 }, { 11, 12, 13, 14, 15 },
+        { 21, 22, 23, 24, 25 }, { 31, 32, 33, 34, 35 } };
+    println(Sort.findElement(matrix, 15));
+  }
+
+  private static void test7() {
+    println("question 7");
+    Random rand = new Random(47);
+    ArrayList<Sort.Person> persons = new ArrayList<Sort.Person>();
+    for (int i = 0; i < 10; i++) {
+      Sort.Person p = new Sort.Person(rand.nextInt(30), rand.nextInt(30));
+      persons.add(p);
+    }
+    println("persons array");
+    println(persons);
+    ArrayList<Sort.Person> longestSequence = Sort
+        .getLongestSequence(persons);
+    println("longest subsequence");
+    println(longestSequence);
+  }
+
   public static void main(String[] args) {
     // test1();
     // test2();
     // test3();
-    test5();
+    // test5();
+    // test6();
+    test7();
   }
 }
