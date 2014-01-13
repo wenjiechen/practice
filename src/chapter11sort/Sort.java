@@ -291,6 +291,12 @@ public class Sort {
         matrix.length - 1, matrix[0].length - 1), x);
   }
 
+  /**
+   * question 11.7,
+   * 
+   * @author wenjie
+   * 
+   */
   static class Person implements Comparable {
     int height;
     int weight;
@@ -328,6 +334,14 @@ public class Sort {
     return (s1.size() > s2.size()) ? s1 : s2;
   }
 
+  /**
+   * find the longest increasing subsequence, keep the original order between
+   * elements
+   * 
+   * @param persons
+   * @param solutions
+   * @param cur_id
+   */
   static void longestIncreasingSubsequence(ArrayList<Person> persons,
       ArrayList<Person>[] solutions, int cur_id) {
     if (cur_id >= persons.size() || cur_id < 0)
@@ -369,11 +383,16 @@ public class Sort {
     return solutions[maxLengthIndex];
   }
 
+  /**
+   * question 11.7,
+   * 
+   * @param persons
+   * @return
+   */
   public static ArrayList<Person> getLongestSequence(ArrayList<Person> persons) {
     Collections.sort(persons);
     System.out.println("after sort by height");
     System.out.println(persons);
     return longestIncreasingSubsequence(persons);
   }
-
 }
