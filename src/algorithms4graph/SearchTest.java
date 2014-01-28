@@ -9,8 +9,12 @@ public class SearchTest {
   private static Graph G;
 
   private static void createGraph() {
-    In in = new In("D:\\algorithm4JARandData\\algs4-data\\tinyG.txt");
-    // In in = new In("D:\\algorithm4JARandData\\algs4-data\\mediumG.txt");
+    //window path
+//  In in = new In("D:\\algorithm4JARandData\\algs4-data\\tinyG.txt");
+//  In in = new In("D:\\algorithm4JARandData\\algs4-data\\mediumG.txt");
+        
+//  ubuntu path
+    In in = new In("/home/wenjie/algorithm4jar_dataset/algs4-data/tinyG.txt");
     G = new Graph(in);
     System.out.println(G);
   }
