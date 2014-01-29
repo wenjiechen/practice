@@ -1,11 +1,11 @@
 package chapter5bitmanipulation;
 
 public class BitManipulation {
-  
-  private static void println(Object x){
+
+  private static void println(Object x) {
     System.out.println(x);
   }
-  
+
   /**
    * check the ith postion is 1 or 0
    * 
@@ -36,21 +36,21 @@ public class BitManipulation {
 
   public static int clearBitsIto0(int num, int ith) {
     System.out.println("num: " + num + ", pos: " + ith);
-    int mask = ~((1<<ith)-1);
+    int mask = ~((1 << ith) - 1);
     return mask & num;
   }
 
-  public static void test(){
+  public static void test() {
     int num = 0x40;
     System.out.println(getBit(num, 6));
     System.out.println(setBit(0x0, 4));
     System.out.println(cleanBit(0x18, 4));
     System.out.println(clearBitsToI(0x48, 4));
-    System.out.println(clearBitsIto0(0x1c,4));
+    System.out.println(clearBitsIto0(0x1c, 4));
   }
 
   public static void main(String[] args) {
-   // test();
+    // test();
     println(Integer.valueOf("1000", 2));
   }
 }
