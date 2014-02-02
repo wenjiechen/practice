@@ -67,7 +67,42 @@ public class BitQuestion {
 
   }
 
+  // question 5.5
+  public static int bitSwapRequired(int m, int n) {
+    int count = 0;
+    for (int c = m ^ n; c != 0; c = c & (c - 1)) {
+      count++;
+    }
+    return count;
+  }
+
+  public static void test5() {
+    int m = 0x44;
+    int n = 0x41;
+    System.out.println(Integer.toBinaryString(m));
+    System.out.println(Integer.toBinaryString(n));
+    System.out.println(bitSwapRequired(m, n));
+  }
+
+  // question 5.6
+  static void swapOddEvenBits(int n) {
+    System.out.println(n);
+    System.out.println(Integer.toBinaryString(n));
+    int odd = n & 0xAAAAAAAA;
+    int even = n & 0x55555555;
+    int ret = (odd >> 1) | (even << 1);
+    System.out.println(ret);
+    System.out.println(Integer.toBinaryString(ret));
+
+  }
+
+  static void test6() {
+    swapOddEvenBits(0x55);
+  }
+
   public static void main(String[] args) {
-    test2();
+    // test2();
+//    test5();
+    test6();
   }
 }
