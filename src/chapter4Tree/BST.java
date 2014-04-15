@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class BST implements Visitor {
 
-  static class Node {
+  static class Node { 
     int data;
     Node leftChild = null;
     Node rightChild = null;

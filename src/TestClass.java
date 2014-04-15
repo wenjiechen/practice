@@ -30,9 +30,14 @@ public class TestClass {
     System.out.println(arr.get(1));
   }
 
-  public static void test2() {
+  public final static void test2() {
     int[] arr = { 1, 1 };
     System.out.println(removeDuplicates(arr));
+    try {
+
+    } finally {
+
+    }
   }
 
   public static void main(String[] args) {

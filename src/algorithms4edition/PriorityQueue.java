@@ -42,18 +42,16 @@ public class PriorityQueue {
   }
 
   private void swim(int k) {
-    while (k > 1 && less(k / 2, k)) {
-      exch(k / 2, k);
+    while (k > 1 && less(k / 2, k))
       k = k / 2;
-    }
   }
 
   private void sink(int k) {
-    while (2 * k < N) {
+    while (2 * k <= N) {
       int j = 2 * k;
       if (j < N && less(j, j + 1))
         j++;
-      if (!less(k, j))
+      if (!less(k,j))
         break;
       exch(k, j);
       k = j;
@@ -101,7 +99,7 @@ public class PriorityQueue {
 
   private static boolean isSorted(Comparable[] a) {
     for (int i = 2; i < a.length; i++)
-      if (less(a[i], a[i-1]))
+      if (less(a[i], a[i - 1]))
         return false;
     return true;
   }
